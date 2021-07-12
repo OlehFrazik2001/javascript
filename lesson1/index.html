@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    // - Створити змінні. Присвоїти кожному з них значення: 'hello','owu','com', 'ua', 1, 10, -999, 123, 3.14, 2.7, 16, true, false.
+    //     Вивести кожну змінну за допомогою: console.log , alert, document.write
+
+    let grat = 'hello';
+    console.log(grat);
+    alert(grat);
+    document.write(`<h2>${grat}</h2>`)
+
+
+    let name = 'owu';
+    console.log(name);
+    alert(name);
+    document.write(`<h2>${name}</h2>`)
+
+    let dom = 'com';
+    console.log(dom);
+    alert(dom);
+    document.write(`<h2>${dom}</h2>`)
+
+    let country = 'ua';
+    console.log(country);
+    alert(country);
+    document.write(`<h2>${country}</h2>`)
+
+    let one = 1;
+    console.log(one);
+    alert(one);
+    document.write(`<h2>${one}</h2>`)
+
+    let ten = 10;
+    console.log(ten);
+    alert(ten);
+    document.write(`<h2>${ten}</h2>`)
+
+    let minus999 = -999;
+    console.log(minus999);
+    alert(minus999);
+    document.write(`<h2>${minus999}</h2>`)
+
+    let oneTwoThree = 123;
+    console.log(oneTwoThree);
+    alert(oneTwoThree);
+    document.write(`<h2>${oneTwoThree}</h2>`)
+
+    let pi = 3.14;
+    console.log(pi);
+    alert(pi);
+    document.write(`<h2>${pi}</h2>`)
+
+    let e = 2.7;
+    console.log(e);
+    alert(e);
+    document.write(`<h2>${e}</h2>`)
+
+    let hex = 16;
+    console.log(hex);
+    alert(hex);
+    document.write(`<h2>${hex}</h2>`)
+
+    let yes = true;
+    console.log(yes);
+    alert(yes);
+    document.write(`<h2>${yes}</h2>`)
+
+    let no = false;
+    console.log(no);
+    alert(no);
+    document.write(`<h2>${no}</h2>`)
+
+    function saySomething(text) {
+        console.log(text);
+        alert(text)
+        document.write(`<h3>${text}</h3>`)
+    }
+
+
+    // - Переприсвоїти кожну змінну з завдання вище на будь які довільні значення.
+    //     Вивести кожну змінну за допомогою: console.log , alert, document.write
+    grat = "Hi";
+    name = 'OWU';
+    dom = '123';
+    country = 'usa';
+    one = -1;
+    ten = "ten";
+    minus999 = 999 + '';
+    oneTwoThree = 'eleven';
+    pi = 3.14159;
+    e = 'Euler';
+    hex = 32;
+    yes = 'YES';
+    no = true;
+    saySomething(grat);
+    saySomething(name);
+    saySomething(dom);
+    saySomething(country);
+    saySomething(one);
+    saySomething(ten);
+    saySomething(minus999);
+    saySomething(oneTwoThree);
+    saySomething(pi);
+    saySomething(e);
+    saySomething(hex);
+    saySomething(yes);
+    saySomething(no);
+    // - Створити 3 змінних firstName, middleName, lastName, наповнити їх своїм ПІБ. Зконкатенувати їх в одну змінну person.
+    let firstName = "Oleh"
+    let middleName = "Vasylovych"
+    let lastName = "Frazik"
+    let person = lastName + ' ' + firstName + ' ' + middleName
+    console.log(person);
+    // - За допомогою 3х різних prompt() отримати 3 слова які являються вашими Імям, По-Батькові та роками.
+    //     Вивести "Вітаю *Імя* *По батькові*. Тобі *вік* років".
+    let yourName = prompt('Ваше ім\'я');
+    let yourMiddleName = prompt('Ваше по батькові');
+    let age = prompt('Ваш вік');
+    console.log(`Вітаю ${yourName} ${yourMiddleName}. Тобі ${age} років.`)
+    // - За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.
+    //     let a = 100; let b = '100'; let c = true;
+    let a = 100;
+    console.log(typeof a);
+    let b = '100';
+    console.log(typeof b);
+    let c = true;
+    console.log(typeof c);
+    // - Поставет відповідний оператор в виразах що б вийшов відповідний результат.
+    //     В однакових виразаї не використовувати однакові оператори!!!
+    //     5 ? 6 -> true
+    console.log(5 < 6);
+    // 5 ? 6 -> false
+    console.log(5 > 6);
+    // 5 ? 6 -> false
+    console.log(5 === 6);
+    // 5 ? 6 -> false
+    console.log(5 && !6);
+    // 10 ? 10 -> true
+    console.log(10 == 10);
+    // 10 ? 10 -> true
+    console.log(!!(10 || 10));
+    // 10 ? 10 -> false
+    console.log(10 > 10);
+    // 10 ? 10 -> false
+    console.log(!! (10 % 10));
+    // 10 ? 10 -> false
+    console.log(10 < 10);
+    // 123 ? '123' -> false
+    console.log(123 === '123');
+    // 123 ? '123' -> true
+    console.log(123 == '123');
+
+</script>
+
+</body>
+</html>
