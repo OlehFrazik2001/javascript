@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//     -   функція Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+//   EXAMPLE:
+//   foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
+//   foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
+//   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
+//
+function swap(arr, index) {
+    let temp;
+    temp = arr[index];
+    arr[index] = arr[index + 1];
+    arr[index + 1] = temp;
+    return arr;
+}
+
+console.log(swap([9, 8, 0, 4], 0));
+console.log(swap([9, 8, 0, 4], 1));
+console.log(swap([9, 8, 0, 4], 2));
+// - Дано список імен.
+// let n1 = '    Harry       Potter      '
+// let n2 = '    Ron       Whisley      '
+// let n3 = '    Hermione       Granger      '
+// Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
+// let n1 = 'Harry Potter'
+// let n2 = 'Ron Whisley'
+// let n3 = 'Hermione Granger'
+//
+function normalize(str) {
+    let word = ''
+    for (let i = 0; i < str.length - 1; i++) {
+        if (!(str[i] === ' ' && str[i + 1] === ' ')) {
+            word += str[i + 1];
+        }
+    }
+    if (word[word.length -1] === ' '){
+        word = word.slice(0, word.length - 1);
+    }
+    return word;
+}
+
+console.log(normalize('    Harry       Potter  '));
+console.log(normalize('    Ron       Whisley      '));
+console.log(normalize('    Hermione       Granger      '));
+
+// - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
+// Двожина масиву від 2 до 100
+// EXAMPLE:
+// [1,0,6,0,3] => [1,6,3,0,0]
+// [0,1,2,3,4] => [1,2,3,4,0]
+// [0,0,1,0]   => [1,0,0,0]
+function zeroToTheEnd (arr) {
+    let zero;
+    for (let i = arr.length - 1; i >= 0; i--) {
+        if (arr[i] === 0) {
+            zero = arr.splice(i, 1)
+            arr.push(zero[0]);
+        }
+    }
+    return arr;
+}
+
+console.log(zeroToTheEnd([1, 0, 6, 0, 3]));
+console.log(zeroToTheEnd([0,1,2,3,4]));
+console.log(zeroToTheEnd([0,0,1,0]));
+</script>
+</body>
+</html>
