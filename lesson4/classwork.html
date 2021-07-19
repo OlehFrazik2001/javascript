@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // - створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле є масивом зі списком товарів)
+    class Client {
+        constructor(id, name, surname, email, phone, order) {
+            this.id = id;
+            this.name = name;
+            this.surname = surname;
+            this.email = email;
+            this.phone = phone;
+            this.order = order;
+        }
+    }
+
+    // створити пустий масив, наповнити його 10 об'єктами Client
+    let clients = [
+        new Client(5, 'kolya', 'palcev', 'kol@gmail.com', '+380966666888', ['bread', 'milk']),
+        new Client(1, 'olya', 'pupkin', 'olm@gmail.com', '+380977777777', ['snack']),
+        new Client(15, 'masha', 'locev', 'mas@gmail.com', '+380522222542', ['cream', 'butter', 'jam']),
+        new Client(20, 'sveta', 'andreyeva', 'sve@gmail.com', '+380623154885', ['water']),
+        new Client(36, 'liza', 'sheva', 'liz@gmail.com', '+380541545662', ['bread', 'juice', 'cookies', 'milk']),
+        new Client(12, 'nazar', 'franko', 'naz@gmail.com', '+380555487879', ['sausages', 'potato']),
+        new Client(9, 'vitaliy', 'pidluzh', 'vit@gmail.com', '+380143158748', ['melon']),
+        new Client(16, 'olya', 'skvorcova', 'olv@gmail.com', '+380213456875', ['meat', 'bread', 'water', 'ice-cream']),
+        new Client(14, 'katya', 'melkaya', 'kat@gmail.com', '+380135448764', ['watermelon']),
+        new Client(12, 'andriy', 'bolshoy', 'and@gmail.com', '+380132546897', ['apples', 'oranges', 'meat'])
+    ];
+    // Взяти масив (Client []).Відсортувати його по кількості товарів в полі order по зростанню. (sort)
+    sortedClients = clients.sort(function (c1, c2) {
+        return c1.order.length - c2.order.length;
+    });
+    console.log(sortedClients);
+
+    // - Створити функцію конструктор яка дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
+    // -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
+    // -- info () - яка виводить всю інформацію про автомобіль
+    // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+    // -- changeYear (newValue) - змінює рік випуску на значення newValue
+    // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
+    function Car(model, manufacturer, year, maxSpeed, volume) {
+        this.model = model;
+        this.manufacturer = manufacturer;
+        this.year = year;
+        this.maxSpeed = maxSpeed;
+        this.volume = volume;
+
+        this.drive = function () {
+            console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
+        }
+
+        this.info = function () {
+            console.log(`модель ${this.model}, виробник ${this.manufacturer}, рік випуску ${this.year}, максимальна швидкість ${this.maxSpeed}, об'єм двигуна ${this.volume}`)
+        }
+
+        this.increaseMaxSpeed = function(newMaxSpeed) {
+            this.maxSpeed = newMaxSpeed;
+        }
+
+        this.changeYear = function (newYear) {
+            this.year = newYear;
+        }
+
+        this.addDriver = function (name, surname) {
+            this.driver = {name: name, surname: surname}
+        }
+    }
+
+    let car1 = new Car('q5', 'germany', 2015, 240, 4.4);
+    car1.drive();
+    car1.info();
+    car1.increaseMaxSpeed(260);
+    car1.changeYear(2018);
+    car1.info();
+    car1.addDriver('vasya', 'pupkin')
+    console.log(car1);
+
+
+    // - (Те саме, тільки через клас)
+    // Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
+    // -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
+    // -- info () - яка виводить всю інформацію про автомобіль
+    // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+    // -- changeYear (newValue) - змінює рік випуску на значення newValue
+    // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
+    class Car1{
+        constructor(model, manufacturer, year, maxSpeed, volume) {
+            this.model = model;
+            this.manufacturer = manufacturer;
+            this.year = year;
+            this.maxSpeed = maxSpeed;
+            this.volume = volume;
+        }
+
+
+        drive() {
+            console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
+        }
+
+        info() {
+            console.log(`модель ${this.model}, виробник ${this.manufacturer}, рік випуску ${this.year}, максимальна швидкість ${this.maxSpeed}, об'єм двигуна ${this.volume}`)
+        }
+
+        increaseMaxSpeed(newMaxSpeed) {
+            this.maxSpeed = newMaxSpeed;
+        }
+
+        changeYear(newYear) {
+            this.year = newYear;
+        }
+
+        addDriver(name, surname) {
+            this.driver = {name: name, surname: surname}
+        }
+    }
+    let car2 = new Car1('q7', 'Germany', 2016, 245, 4.6);
+    car2.drive();
+    car2.info();
+    car2.increaseMaxSpeed(265);
+    car2.changeYear(2019);
+    car2.info();
+    car2.addDriver('vasya', 'pupkin')
+    console.log(car2);
+
+
+    // -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити 10 попелюшок , покласти їх в масив.
+    // Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+    //         За допомоги циклу знайти яка попелюшка повинна бути з принцом.
+    //         Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+    class Cinderella {
+        constructor(name, age, size) {
+            this.name = name;
+            this.age = age;
+            this.size = size
+        }
+    }
+
+    class Prince {
+        constructor(name, age, findedSize) {
+            this.name = name;
+            this.age = age;
+            this.findedSize = findedSize
+        }
+    }
+
+    cinderellas = [
+        new Cinderella('cin1', 25, 36),
+        new Cinderella('cin2', 26, 35),
+        new Cinderella('cin3', 27, 37),
+        new Cinderella('cin4', 28, 36),
+        new Cinderella('cin5', 29, 32),
+        new Cinderella('cin6', 23, 33),
+        new Cinderella('cin7', 25, 41),
+        new Cinderella('cin8', 24, 39),
+        new Cinderella('cin9', 28, 36),
+        new Cinderella('cin10', 35, 37),
+    ]
+
+    let prince = new Prince('Price', 32, 32);
+    for (let cinederella of cinderellas) {
+        if (cinederella.size === prince.findedSize) {
+            console.log(`Cinderella is finded. Her name is ${cinederella.name}`)
+            break;
+        }
+    }
+
+    let findCin = cinderellas.find(function (value){
+        return value.size === prince.findedSize;
+    })
+    console.log(findCin);
+</script>
+</body>
+</html>
