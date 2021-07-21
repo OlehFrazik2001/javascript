@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form name="form2">
+    <input type="text" name="productName">
+    <input type="number" name="productAmount">
+    <input type="number" name="productPrice">
+    <input type="url" name="productImage">
+    <button>save</button>
+</form>
+
+<a href='list.html'> На сторінку товарів</a>
+
+<script>
+    // - Імітуємо наповнення інтернет магазину товарами :
+    //         Створити форму з наступними полями :
+    //         - назва товару
+    // - кількість товару
+    // - ціна товару
+    // - картинка товару (посилання з інтернету)
+    // Зберігати товари в масив в локалсорадж. При збережені товару з форми, action не повинно відбуватись.
+    //         створити елемент <a href='list.html'> На сторінку товарів</a>, та list.html, при переході на який відобразити на сторінці всі товари.
+
+
+    let form2 = document.forms.form2;
+    console.log(form2);
+
+    let products = [];
+
+    form2.onsubmit = function (e) {
+        e.preventDefault();
+        product = {
+            productName : form2.productName.value,
+            productAmount : form2.productAmount.value,
+            productPrice : form2.productPrice.value,
+            productImage : form2.productImage.value,
+        };
+        products.push(product);
+        localStorage.setItem("products", JSON.stringify(products));
+    }
+</script>
+</body>
+</html>

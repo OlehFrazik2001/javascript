@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form action="index2.html" name="form1">
+  <input type="text" name="username">
+  <button>save</button>
+</form>
+<script>
+  // - Створити форму з інпутом для введення ім'я, та action="index2.html".
+  // При відправці данних з форми, зберігати ім'я в localstorage, та переходити на index2.html.
+  // На index2.html виводити записане в localstorage ім'я в div
+
+
+  let form1 = document.forms.form1;
+  let uName = form1.username;
+  form1.onsubmit = function (e) {
+    localStorage.setItem("username", uName.value);
+  };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="delete-btn">delete all</button>
+
+<div class="products"></div>
+
+<script>
+  // На сторінці  list.html побудувати кнопку яка видаляє всі товари з корзини та локалстораджа.
+  let delBut = document.getElementById("delete-btn");
+  delBut.onclick = function () {
+    localStorage.removeItem('products');
+    location.reload();
+  }
+
+  //         До кожного товару додати кнопку, при кліку на яку з лс видаляється конкретний обраний  товар
+  let productsFromLocalStorage = localStorage.getItem('products')
+  let div = document.getElementsByClassName('products')[0];
+  let parseProducts = JSON.parse(productsFromLocalStorage)
+
+  if (parseProducts != null) {
+    for (let parseProduct of parseProducts) {
+      let div2 = document.createElement('div')
+      let name = document.createElement('h2');
+      name.innerText = parseProduct.productName;
+      let amount = document.createElement('p');
+      amount.innerText = parseProduct.productAmount;
+      let price = document.createElement('p');
+      price.innerText = parseProduct.productPrice;
+      let img = document.createElement('img');
+      img.url = parseProduct.productImage;
+      let delButOneElement = document.createElement('button');
+      delButOneElement.innerText = "Delete this item";
+
+      delButOneElement.onclick = function () {
+        parseProducts.splice(parseProducts.indexOf(parseProduct), 1);
+        console.log(parseProducts);
+        localStorage.setItem('products', JSON.stringify(parseProducts));
+        location.reload();
+      }
+
+      div2.append(name, amount, price, img, delButOneElement);
+      div.appendChild(div2);
+    }
+  }
+
+
+</script>
+</body>
+</html>
