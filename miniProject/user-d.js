@@ -19,7 +19,7 @@ innerDiv.classList.add('post')
 innerDiv.innerHTML = `
 <h1>${user.username}</h1>
 <h2>Personal info</h2>
-<div>
+<div class="info">
 <p>id: ${user.id} </p>
 <p>name: ${user.name} </p>
 <p>username: ${user.username} </p>
@@ -28,7 +28,7 @@ innerDiv.innerHTML = `
 <p>website: ${user.website}</p>
 </div>
 <h2>Address</h2>
-<div>
+<div class="info">
 <p>city: ${user.address.city} </p>
 <p>suite: ${user.address.suite} </p>
 <p>street: ${user.address.street} </p>
@@ -36,7 +36,7 @@ innerDiv.innerHTML = `
 <p>geo: ${user.address.geo.lat} ${user.address.geo.lng}</p>
 </div>
 <h2>Company</h2>
-<div>
+<div class="info">
 <p>name: ${user.company.name}</p>
 <p>catch phrase: ${user.company.catchPhrase}</p>
 <p>bs: ${user.company.bs}</p>
